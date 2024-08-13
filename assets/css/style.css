@@ -737,6 +737,19 @@ section .container {
   padding: 2px 15px;
 }
 
+.portfolio-wrap img {
+  height: 200px; /* Set the desired height */
+  object-fit: cover; /* This ensures the image scales nicely */
+  width: 100%; /* Ensure the image fills the width of its container */
+}
+
+.portfolio-wrap {
+  height: 100%; /* Make sure the wrap div is always full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .portfolio #portfolio-flters li {
   cursor: pointer;
   display: inline-block;
