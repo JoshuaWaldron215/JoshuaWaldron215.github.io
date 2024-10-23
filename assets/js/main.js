@@ -9,6 +9,8 @@
 
   // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
+
+
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var hash = this.hash;
       var target = $(hash);
@@ -147,5 +149,27 @@
   $(document).ready(function() {
     $('.venobox').venobox();
   });
+
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function createBubble() {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.style.left = `${random(0, 100)}%`;
+    bubble.style.width = `${random(20, 80)}px`;
+    bubble.style.height = bubble.style.width;
+    bubble.style.animationDuration = `${random(10, 20)}s`;
+    document.querySelector('.bubble-container').appendChild(bubble);
+
+    // Remove the bubble after its animation is complete
+    bubble.addEventListener('animationend', () => {
+      bubble.remove();
+    });
+  }
+
+  // Generate bubbles at random intervals
+  setInterval(createBubble, 500);
 
 })(jQuery);
